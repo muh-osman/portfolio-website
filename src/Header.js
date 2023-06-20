@@ -1,6 +1,10 @@
 import { useRef } from "react"
 //React router
 import { Link } from "react-router-dom"
+// Framer motion npm
+import { motion } from "framer-motion"
+import {headerVariants} from "./utils/motion"
+import useHeaderShadow from "./utils/useHeaderShadow"
 //Image & logo
 import logo from "./assets/image/logo.svg"
 import phone from "./assets/image/phone.svg"
@@ -17,21 +21,22 @@ export default function Header() {
 
 
 
-  // root.addEventListener ("scroll", ()=>{
 
-  //     if (scrollY > "10px") {
-  //         alert("kkk")
-  //     }
-  // })
   const smallScreenNav = useRef()
   const toggleNav = () => {
     smallScreenNav.current.classList.toggle("show-hide-nav");
   }
 
-
+  const headerShadow = useHeaderShadow();
 
   return (
-    <header>
+    <motion.header
+      initial= "hidden"
+      whileInView= "show"
+      variants= {headerVariants}
+      viewport={{ once: true, amount: 0.25 }}
+      style={{boxShadow: headerShadow}}
+    >
 
         <div className="logo">
           <Link to="/">
@@ -75,6 +80,6 @@ export default function Header() {
         </nav>
 
 
-    </header>
+    </motion.header>
   )
 }
