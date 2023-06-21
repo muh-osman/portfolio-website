@@ -13,7 +13,11 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+html {
   scroll-behavior: smooth;
+  scroll-padding-top: 105px;
 }
 
 a {
@@ -41,24 +45,23 @@ body {
   /* overflow: hidden; */
   overflow: clip auto;
   background-color: #f8f7f1;
-  height: 5000px;
+  /* height: 5000px; */
 }
 
 /* HEADER */
 
 header {
   position: sticky;
+  z-index: 99;
   top: 0;
   width: 100%;
   padding: 32px 64px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  /* background-color: var(--secondary-white-color); */
   background-color: #f8f7f1;
-  /* box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
-    rgba(0, 0, 0, 0.06) 0px 2px 4px -1px; */
-
+  box-shadow: none;
+  transition: box-shadow 0.1s;
 }
 
 header .logo {
@@ -242,7 +245,7 @@ header nav button {
   padding: 64px 0;
 }
 
-.right-hero div{
+.right-hero div {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -259,21 +262,15 @@ header nav button {
   font-weight: 700;
 }
 
-
-
-
-
-
 .alt-right-hero {
   display: none;
   align-items: center;
   justify-content: center;
   padding: 32px;
   background-color: #f8f7f1;
-
 }
 
-.alt-right-hero div{
+.alt-right-hero div {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -318,7 +315,6 @@ header nav button {
 
   .alt-right-hero img {
     margin: 0;
-
   }
 }
 
@@ -339,9 +335,11 @@ header nav button {
   .alt-right-hero img {
     width: 60px;
   }
+
+  .alt-right-hero h2 {
+    font-size: 20px;
+  }
 }
-
-
 
 /* Services */
 #services {
@@ -350,7 +348,11 @@ header nav button {
   align-items: flex-start;
   justify-content: center;
   padding: 64px;
+  gap: 32px;
+  color: #0d2f3f;
+  /* scroll-snap-align: start; */
 }
+
 #services > div {
   width: 50%;
 }
@@ -361,18 +363,26 @@ header nav button {
   gap: 32px;
 }
 
-.left-services > div{
-  border: 1px solid #E7E7E7;
+.left-services > div {
+  border: 1px solid #e7e7e7;
   width: 100%;
   border-radius: 20px;
-  padding: 24px;
+  padding: 32px;
   display: flex;
-  gap: 24px;
+  align-items: center;
+  gap: 32px;
+  cursor: pointer;
+  box-shadow: none;
+  transition: box-shadow 0.2s;
+}
+
+.left-services > div h3 {
+  font-weight: 500;
 }
 
 .left-services > div div:first-of-type {
   border-radius: 50%;
-  width: 50px;
+  min-width: 50px;
   height: 50px;
   display: flex;
   align-items: center;
@@ -380,7 +390,7 @@ header nav button {
 }
 
 .left-services > div .image-box-one {
-  background-color: #0d2f3f;
+  background-color: #286f6c;
 }
 .left-services > div .image-box-two {
   background-color: #eec048;
@@ -389,4 +399,147 @@ header nav button {
   background-color: #f26440;
 }
 
+.services-title {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
 
+.left-services > div:hover {
+  box-shadow: 0 21px 13px #0000000a;
+}
+
+.right-services {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.right-services h1 {
+  font-size: 48px;
+}
+
+.right-services p {
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 40px;
+}
+
+.right-services > div {
+  display: flex;
+  gap: 64px;
+  text-align: center;
+}
+
+.right-services > div h2 {
+  font-size: 48px;
+  font-weight: 700px;
+}
+
+.right-services > div h3 {
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 50px;
+}
+
+@media (width <= 915px) {
+  #services {
+    padding: 32px;
+    flex-wrap: wrap;
+    gap: 64px;
+  }
+
+  #services > div {
+    width: 100%;
+  }
+
+  .right-services > div div {
+    /* justify-content: center; */
+    width: 50%;
+  }
+
+  .right-services h1 {
+    font-size: 43px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Footer */
+
+footer {
+  padding: 64px;
+  display: flex;
+  align-items: center;
+  /* gap: 36px; */
+  color: #0d2f3f;
+  /* background-color: #fff; */
+}
+
+footer .footer-slogan {
+  width: 75%;
+}
+
+footer h1{
+  font-size: 48px;
+  font-weight: 700;
+}
+
+footer div h1:first-of-type {
+  margin-bottom: 48px;
+}
+
+footer div h1:nth-of-type(2) a{
+  color: orange;
+  text-decoration: underline;
+}
+
+footer div h2 {
+  margin-bottom: 12px;
+}
+
+footer .footer-link {
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+footer  a:hover{
+  color: #286f6c;
+}
+
+@media (width <= 915px) {
+  footer {
+    padding: 32px;
+    flex-wrap: wrap;
+  }
+
+  footer .footer-slogan {
+    width: 100%;
+  }
+
+  footer .footer-slogan{
+    margin-bottom: 48px;
+  }
+
+  footer .footer-link {
+    flex-direction: row;
+  }
+
+  footer div h1:nth-child(2){
+    font-size: 36px;
+  }
+}
