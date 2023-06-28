@@ -1,12 +1,3 @@
-/* @font-face {
-  font-family: "Roboto";
-  src: local("Roboto"),
-    url("./assets/font/Roboto-Light.ttf") format("truetype") tech(color-COLRv1),
-    url("./assets/font/Roboto-Regular.ttf") format("truetype"),
-    url("./assets/font/Roboto-Medium.ttf") format("truetype"),
-    url("./assets/font/Roboto-Bold.ttf") format("truetype");
-} */
-
 *,
 ::before,
 ::after {
